@@ -1,68 +1,48 @@
-let productos =[]
 const selectTag = document.getElementById('lista') 
 
 //objetos que se guardan en el arreglo 'productos'
-const cafe = {
+let productos =[{
     nombre: 'Libra de cáfe',
-    Precio: 25000
-}
-productos.push(cafe)
+    Precio: 25000},
+    {
+        nombre: '1/2 Libra de cáfe',
+        Precio: 15000
+    },
+    {
+        nombre: 'Prensa francesa de plástico',
+        Precio: 25000
+    },
+    {
+        nombre: 'Prensa francesa de madera',
+        Precio: 55000
+    },
+    {
+        nombre: 'Aeropress',
+        Precio: 110000
+    },
+    {
+        nombre: 'Syphon Japonesa',
+        Precio: 165000
+    },
+    {
+        nombre: 'V60 en acrilico',
+        Precio: 30000
+    },
+    {
+        nombre: 'V60 en cerámica',
+        Precio: 50000
+    },
+    {
+        nombre: 'Molino de acero',
+        Precio: 60000
+    },
+    {
+        nombre: 'Jarra Kettle',
+        Precio: 85000
+    }
+]
 
-const mediacafe = {
-    nombre: '1/2 Libra de cáfe',
-    Precio: 15000
-}
-productos.push(mediacafe)
-
-const prensaPlastico = {
-    nombre: 'Prensa francesa de plástico',
-    Precio: 25000
-}
-productos.push(prensaPlastico)
-
-const prensaMadera = {
-    nombre: 'Prensa francesa de madera',
-    Precio: 55000
-}
-productos.push(prensaMadera)
-
-const aeroepress = {
-    nombre: 'Aeropress',
-    Precio: 110000
-}
-productos.push(aeroepress)
-
-const syphon = {
-    nombre: 'Syphon Japonesa',
-    Precio: 165000
-}
-productos.push(syphon)
-
-const V60A = {
-    nombre: 'V60 en acrilico',
-    Precio: 30000
-}
-productos.push(V60A)
-
-const V60C = {
-    nombre: 'V60 en cerámica',
-    Precio: 50000
-}
-productos.push(V60C)
-
-const molino = {
-    nombre: 'Molino de acero',
-    Precio: 60000
-}
-productos.push(molino)
-
-const jarra = {
-    nombre: 'Jarra Kettle',
-    Precio: 85000
-}
-productos.push(jarra)
-
-//Se agregan los elementos del arreglo producto al select
+//Se agregan los elementos del arreglo productos al select
 productos.forEach(producto=>{
     const option = document.createElement('option')
     option.innerText = `${producto.nombre}: $${producto.Precio} `
@@ -80,10 +60,13 @@ document.body.append(boton2)
 
 let carrito = []
 
-//Evento para guardar el producto comprado en el arreglo carrito
+//Evento para guardar el producto comprado en el arreglo carrito y mostrarlo en un párrafo
 boton.onclick = ()=>{
     const productoSeleccionado = productos[selectTag.selectedIndex]
     carrito.push(productoSeleccionado)
+    const p = document.createElement('p')
+    p.innerText = `${productoSeleccionado.nombre}: $${productoSeleccionado.Precio}`
+    document.body.append(p)
 }
 
 //Evento para calcular el precio total de la compra
