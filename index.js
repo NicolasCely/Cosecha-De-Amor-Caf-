@@ -60,22 +60,29 @@ document.body.append(boton2)
 
 let carrito = []
 
-//Evento para guardar el producto comprado en el arreglo carrito y mostrarlo en un párrafo
+//Evento para guardar el producto comprado en el arreglo carrito, guardar los productos comprados en el 
+//storage y recuperarlos y mostrarlos en el HTML
 boton.onclick = ()=>{
     const productoSeleccionado = productos[selectTag.selectedIndex]
     carrito.push(productoSeleccionado)
+
+    localStorage.setItem("productosCarrito",JSON.stringify(carrito))
+    const productosComprados = JSON.parse(localStorage.getItem("productosCarrito"))
+
+    productosComprados.forEach(dato=>{
     const p = document.createElement('p')
-    p.innerText = `${productoSeleccionado.nombre}: $${productoSeleccionado.Precio}`
-    document.body.append(p)
+    p.innerText = `${dato.nombre}: $${dato.Precio}`
+    document.body.append(p)})
 }
 
+
+
 //Evento para calcular el precio total de la compra
-boton2.onclick = ()=>{
+    boton2.onclick = ()=>{
     let totalCompra = 0
     carrito.forEach((prod)=>{
         totalCompra = totalCompra + prod.Precio
     }
     )
-    alert (`El precio total es ${totalCompra}`)
-}
+    alert (`El precio total es ${totalCompra}`)}
 
