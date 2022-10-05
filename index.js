@@ -38,12 +38,12 @@ class Producto{
 //objetos que se guardan en el arreglo 'productos'
 let prod1 = new Producto('01', 'Libra de café', 25000, './fotos/Lb de café.jpeg')
 let prod2 = new Producto('02','1/2 Libra de café',15000, './fotos/Lb de café.jpeg')
-let prod3 = new Producto('03','Prensa francesa de plástico', 25000, './fotos/Logo3.jpeg')
-let prod4 = new Producto('04','Prensa francesa de madera', 55000, './fotos/logo1.jpeg')
+let prod3 = new Producto('03','Prensa francesa de plástico', 25000, './fotos/Prensa de plástico.webp')
+let prod4 = new Producto('04','Prensa francesa de madera', 55000, './fotos/Prensa de madera.webp')
 let prod5 = new Producto('05','Aeropress', 110000, './fotos/Aeropress.jpg')
 let prod6 = new Producto('06','Syphon Japonesa', 165000, 'fotos/Syphon.jpg')
-let prod7 = new Producto('07','V60 en acrilico', 30000, './fotos/logo1.jpeg')
-let prod8 = new Producto('08','V60 en cerámica', 50000, './fotos/logo2.jpeg')
+let prod7 = new Producto('07','V60 en acrilico', 30000, './fotos/V60 acrilico.webp')
+let prod8 = new Producto('08','V60 en cerámica', 50000, './fotos/V60 en ceramica.webp')
 let prod9 = new Producto('09','Molino de acero', 60000, 'fotos/Molino.jpg')
 let prod10 = new Producto('10','Jarra Kettle', 85000, 'fotos/Jarra Kettle.jpg')
 
@@ -72,11 +72,20 @@ productos.forEach(e => {
             {...carritoFiltrado, ...enCarrito, cantidad: enCarrito.cantidad +1}
         ]
     }
-    alert (`Se agregó ${producto.nombre} al carrito`)
+
+    Toastify({
+        text:`Se agregó ${producto.nombre} al carrito`
+    }).showToast()
+
+    contador.innerHTML = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
  }
+
+ const contador = document.getElementById('cartCounter')
+contador.innerHTML = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
 
 
 //Evento para calcular el precio total de la compra
+
 const boton = document.createElement('button')
 boton.innerText = 'Terminar compra'
 document.body.append(boton)
@@ -85,12 +94,17 @@ boton.onclick = ()=>{
     let totalCompra = 0
     carrito.forEach((prod)=>{
         totalCompra = totalCompra + prod.precio
-        Swal.fire('El precio total es: ${totalCompra}')
+
+        alert (`El precio total es: ${totalCompra}`)
+
+       /* Toastify({
+            text:`El precio total es: ${totalCompra}`
+        }).showToast() */
     }
     )
-    }
+    } 
 
 
-//alert (`El precio total es ${totalCompra}`)}
+
 
     
