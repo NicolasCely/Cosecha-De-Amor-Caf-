@@ -85,7 +85,7 @@ contador.innerHTML = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
 
 
 //Evento para calcular el precio total de la compra
-
+/*
 const boton = document.createElement('button')
 boton.innerText = 'Terminar compra'
 document.body.append(boton)
@@ -97,12 +97,12 @@ boton.onclick = ()=>{
 
         alert (`El precio total es: ${totalCompra}`)
 
-       /* Toastify({
+        Toastify({
             text:`El precio total es: ${totalCompra}`
-        }).showToast() */
+        }).showToast() 
     }
     )
-    } 
+    } */
 
 
 
