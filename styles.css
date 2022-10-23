@@ -2,4 +2,11 @@ body{
     background-color: rgb(240, 238, 238);
     margin: 5px;
     padding: 2px;
+    color: rgb(107, 28, 28);
+}
+
+nav{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(136, 34, 34);
+    background-color: aliceblue;
 }
